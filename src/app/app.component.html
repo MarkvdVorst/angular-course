@@ -7,12 +7,32 @@
 
 <div class="courses">
 
-  <course-card (courseSelected)="onCourseSelected($event)" [course]="coreCourse"></course-card>
+    @for (course of courses; track trackCourse) {
 
-  <course-card (courseSelected)="onCourseSelected($event)" [course]="rxjsCourse"></course-card>
+      <course-card
+        (courseSelected)="onCourseSelected($event)"
+        [course]="course"
+        [index]="$index"
+        [class.is-first]="$first"
+        [class.is-last]="$last"
+        [class.is-even]="$even"
+        [class.is-odd]="$odd"
+      />
+    } @empty {
+      <h1>No courses found!</h1>
+    }
 
-  <course-card (courseSelected)="onCourseSelected($event)" [course]="ngrxCourse"></course-card>
-
+<!--  @for (course of courses; track course; let i = $index; let isFirst = $first; let isLast = $last; let isEven = $even; let isOdd = $odd) {-->
+<!--    <course-card-->
+<!--      (courseSelected)="onCourseSelected($event)"-->
+<!--      [course]="course"-->
+<!--      [index]="i + 1"-->
+<!--      [class.is-first]="isFirst"-->
+<!--      [class.is-last]="isLast"-->
+<!--      [class.is-even]="isEven"-->
+<!--      [class.is-odd]="isOdd"-->
+<!--    />-->
+<!--  }-->
 </div>
 
 

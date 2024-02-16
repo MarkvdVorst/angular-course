@@ -10,16 +10,17 @@ import {Course} from '../model/course';
   styleUrl: './course-card.component.css'
 })
 export class CourseCardComponent {
-  @Input({
-    required: true
-  })
+  @Input()
   course: Course;
+
+  @Input({required: true})
+  index: number;
 
   @Output('courseSelected')
   courseEventEmitter = new EventEmitter<Course>();
 
   onCourseView() {
-    console.log("card component - button clicked...");
+    console.log('card component - button clicked...');
 
     this.courseEventEmitter.emit(this.course);
   }

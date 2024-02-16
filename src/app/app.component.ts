@@ -10,15 +10,17 @@ import {Course} from './model/course';
 })
 export class AppComponent {
 
-  coreCourse = COURSES[0];
-
-  rxjsCourse = COURSES[1];
-
-  ngrxCourse = COURSES[2];
+  courses = [...COURSES];
 
   protected readonly core = core;
 
   onCourseSelected (course: Course) {
     console.log("App component - click event button...", course)
   }
+
+  trackCourse(index: number, course: Course){
+    return course.id
+  }
+
+  protected readonly COURSES = COURSES;
 }
