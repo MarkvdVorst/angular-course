@@ -2,7 +2,7 @@
      [ngClass]="cardClasses()">
 
   <div class="course-title">
-    {{ index }} {{ course.description }}
+    {{ index || '' }} {{ course.description }}
   </div>
 
   <!--  @if (course.id == 1) {-->
@@ -12,7 +12,7 @@
   <!--  } @else {-->
   <!--    <h2>No image available</h2>-->
   <!--  }-->
-  <img width="300" alt="Angular Logo" [src]="course.iconUrl">
+  <img #courseImage width="300" alt="Angular Logo" [src]="course.iconUrl">
 
   <div class="course-description">
     {{ course.longDescription }}

@@ -5,42 +5,33 @@
 
 </div>
 
-<div class="demo">
-  <div>Start Date: {{ startDate | date: 'MMM dd yyyy' }}</div>
+<!--<div class="demo">-->
+<!--  <div>Start Date: {{ startDate | date: 'MMM dd yyyy' }}</div>-->
 
-  <div> {{ price | currency: 'EUR' }}</div>
+<!--  <div> {{ price | currency: 'EUR' }}</div>-->
 
-  <div> Percentage: {{ rate | percent }}</div>
-</div>
+<!--  <div> Percentage: {{ rate | percent }}</div>-->
+<!--</div>-->
 
-<div class="courses">
+<button (click)="onCoursesEdited()">Edit Courses</button>
 
-  @for (course of courses; track trackCourse) {
+<div class="courses" #container>
+<!--  <course-card #cardRef1-->
+<!--               (courseSelected)="onCourseSelected($event)"-->
+<!--               [course]="courses[0]"-->
+<!--  />-->
 
-    <course-card
-      (courseSelected)="onCourseSelected($event)"
-      [course]="course"
-      [index]="$index"
-      [class.is-first]="$first"
-      [class.is-last]="$last"
-      [class.is-even]="$even"
-      [class.is-odd]="$odd"
-    />
-  } @empty {
-    <h1>No courses found!</h1>
-  }
-
-  <!--  @for (course of courses; track course; let i = $index; let isFirst = $first; let isLast = $last; let isEven = $even; let isOdd = $odd) {-->
-  <!--    <course-card-->
-  <!--      (courseSelected)="onCourseSelected($event)"-->
-  <!--      [course]="course"-->
-  <!--      [index]="i + 1"-->
-  <!--      [class.is-first]="isFirst"-->
-  <!--      [class.is-last]="isLast"-->
-  <!--      [class.is-even]="isEven"-->
-  <!--      [class.is-odd]="isOdd"-->
-  <!--    />-->
-  <!--  }-->
+    @for (course of courses; track course; let i = $index; let isFirst = $first; let isLast = $last; let isEven = $even; let isOdd = $odd) {
+      <course-card
+        (courseSelected)="onCourseSelected($event)"
+        [course]="course"
+        [index]="i + 1"
+        [class.is-first]="isFirst"
+        [class.is-last]="isLast"
+        [class.is-even]="isEven"
+        [class.is-odd]="isOdd"
+      />
+    }
 </div>
 
 
