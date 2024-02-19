@@ -13,7 +13,11 @@
   <!--    <h2>No image available</h2>-->
   <!--  }-->
 
-  <ng-content select="course-image"/>
+  <ng-content select="course-image" *ngIf="course.iconUrl; else noImage"/>
+
+  <ng-template #noImage>
+    <ng-container *ngTemplateOutlet="noImageTpl; context: {description: course.description}"></ng-container>
+  </ng-template>
 
   <ng-content select=".course-description"/>
 

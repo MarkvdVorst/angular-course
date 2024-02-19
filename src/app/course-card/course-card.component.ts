@@ -7,7 +7,7 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  Output, QueryList,
+  Output, QueryList, TemplateRef,
   ViewChild
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
@@ -24,6 +24,9 @@ import {CourseImageComponent} from '../course-image/course-image.component';
 export class CourseCardComponent implements AfterViewInit, AfterContentInit{
   @Input()
   course: Course;
+
+  @Input()
+  noImageTpl: TemplateRef<any>;
 
   @Input()
   index: number;
